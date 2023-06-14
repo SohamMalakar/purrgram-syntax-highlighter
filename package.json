@@ -1,0 +1,25 @@
+{
+  "name": "purrgram-syntax-highlighter",
+  "displayName": "Purrgram Syntax Highlighter",
+  "description": "Highlights purrgram programs",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "purrgram",
+      "aliases": ["Purrgram", "purrgram"],
+      "extensions": [".prr"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "purrgram",
+      "scopeName": "source.prr",
+      "path": "./syntaxes/purrgram.tmLanguage.json"
+    }]
+  }
+}
