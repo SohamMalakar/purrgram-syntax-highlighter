@@ -2,6 +2,11 @@
   "name": "purrgram-syntax-highlighter",
   "displayName": "Purrgram Syntax Highlighter",
   "description": "Highlights purrgram programs",
+  "publisher": "sohammalakar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SohamMalakar/purrgram-syntax-highlighter"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.79.0"
