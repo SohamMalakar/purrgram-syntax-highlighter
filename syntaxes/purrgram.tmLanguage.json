@@ -1,32 +1,113 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Purrgram",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.purrgram",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.purrgram",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.purrgram",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.prr"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Purrgram",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#variables"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.purrgram",
+          "match": "#.*"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.purrgram",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.purrgram",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.integer.purrgram",
+          "match": "\\b\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.float.purrgram",
+          "match": "\\b\\d+\\.\\d*|\\.\\d+\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.flow.purrgram",
+          "match": "\\b(if|else|elif|while|continue|break|return|end)\\b"
+        },
+        {
+          "name": "keyword.control.var.purrgram",
+          "match": "\\bvar\\b"
+        },
+        {
+          "name": "keyword.control.def.purrgram",
+          "match": "\\bdef\\b"
+        },
+        {
+          "name": "constant.language.purrgram",
+          "match": "\\b(true|false|none)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.purrgram",
+          "match": "\\b(and|or|not)\\b"
+        },
+        {
+          "name": "keyword.operator",
+          "match": "=|==|!=|>|<|>=|<=|\\+|-|\\*|/|%|//|\\*\\*"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "entity.name.function.purrgram",
+          "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\s*\\("
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.other.purrgram",
+          "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b(?!\\()"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.prr"
 }
